@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Finlandica', sans-serif;
+    background-color: #1f1f1f;    
+    background-size: cover;
+    transition: all 0.5s;
+}
+
+h1 {
+    color: rgb(255, 237, 189);
+    text-shadow: 0 0 5px rgb(137, 54, 231), 0 0 5px rgb(137, 54, 231), 0 0 5px rgb(137, 54, 231), 0 0 5px rgb(137, 54, 231);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+img {
+    width: 180px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+header {
+    margin-top: 0px;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-image: url(https://st4.depositphotos.com/5580114/21307/v/450/depositphotos_213070310-stock-illustration-big-polka-dots-on-dark.jpg);    
+    align-items: center;    
+    padding: 15px 10%;
+    background-color: rgb(223, 199, 255);
+    box-shadow: 0px 5px 4px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+header img {
+    width: 100px;
+    height: 80px;
+}
+
+#anuncioNovedad {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#reloj {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #e8f6f9;
+    text-shadow: 0 0 5px rgb(109, 19, 211), 0 0 5px rgb(109, 19, 211), 0 0 5px rgb(109, 19, 211), 0 0 5px rgb(109, 19, 211);
+}
+
+
+#contadorCarrito {
+    font-size: 25px;
+    color: #f822ed;
+}
+
+#boton-carrito {
+    border: none;
+    color: rgb(88, 27, 158);
+    font-size: 40px;
+    background-color: rgb(255, 237, 189);
+    box-shadow: 0 0 5px rgb(137, 54, 231);
+    border-radius: 50%;
+    padding: 10px 20px;
+    transition: all .3s;
+}
+
+#boton-carrito:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(184, 121, 226);
+}
+
+#boton-carrito:focus {
+    outline: none;
+}
+
+#contenedor-productos {
+    max-width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#contenedor-productos img{
+    height: 270px;
+    width: 200px;
+    margin-top: 15px;
+}
+
+#filtroBusqueda {
+    margin-top: 150px;
+    margin-left: 50px;
+    padding: 6px;
+    color: #f822ed;
+    font-size: 18px;
+    border-radius: 6px;
+    border-color: blueviolet;
+    background-color: #ffefff;
+    font-family: 'Finlandica', sans-serif;
+}
+
+/* LIGHT-DARK MODE */
+#dark-mode{
+    height: 60px;
+    width: 60px;   
+}
+
+#bdark{
+    background-color:#7a7a7a00;
+    border: none;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+body.darkmode{    
+    background-color: rgb(255, 255, 255);
+}
+
+body.darkmode header{
+    background-image: url(https://img.freepik.com/free-vector/aesthetic-background-polka-dot-pattern-cream-vector_53876-154199.jpg);
+}
+
+/* PRODUCTOS */
+.producto {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    height: 480px;
+    margin-bottom: 20px;
+    box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+    background-color: rgba(232, 214, 247, 0.767);
+}
+
+
+.precioProducto {
+    font-weight: 700;
+}
+
+
+/* CARRITO */
+.boton-agregar {
+    border-radius: 6px;
+    background-color: rgb(88, 27, 158);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px;
+    border: none;
+}
+
+.boton-agregar:hover {
+    cursor: pointer;
+}
+
+.boton-agregar:focus {
+    outline: none;
+}
+
+.boton-comprar {
+    border-radius: 6px;
+    background-color: rgb(27, 128, 158);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-comprar a{
+    text-decoration: none;
+    color: white;
+}
+
+.modal-contenedor {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-carrito {
+    position: relative;
+    background-color: white;
+    min-width: 500px;
+    padding: 20px;
+    margin-top: -100%;
+    transition: all .5s;
+}
+
+.modal-active .modal-carrito {
+    margin-top: 0;
+}
+
+.modal-carrito h3 {
+    color: rgb(188, 65, 225);
+    padding-bottom: 5px;
+}
+
+.modal-carrito #carritoCerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: rgb(65, 129, 225);
+    border: none;
+    background-color: white;
+}
+
+.modal-carrito #carritoCerrar:hover {
+    cursor: pointer;
+}
+
+.modal-carrito #carritoCerrar:focus {
+    outline: none;
+}
+
+.modal-carrito .precioProducto {
+    padding-top: 10px;
+}
+
+.productoEnCarrito {
+    border-left: 5px solid rgb(190, 173, 230);
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.productoEnCarrito:hover {
+    border-left: 5px solid rgb(161, 65, 225);
+}
+
+.boton-eliminar {
+    background-color: white;
+    color: rgb(172, 26, 106);
+    border: none;
+    font-size: 20px;
+}
+
+.boton-eliminar:hover {
+    cursor: pointer;
+}
+
+.boton-eliminar:focus {
+    outline: none;
+}
+
+/* CARD NOVEDADES*/
+.div-padre {
+    padding-top: 6px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 6px;
+    border-color: rgb(188, 109, 252);
+    width: 280px;
+    height: 500px;
+    margin: 10px;
+    background-color: rgba(240, 86, 227, 0.445);
+    box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* CARRUSEL CLIENTES*/
+.clientes h2 {
+    margin-top: 80px;
+    margin-bottom: 30px;
+    box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+    background-color: rgba(232, 214, 247, 0.767);
+    padding: 15px;
+    color: #e8f6f9;
+    text-shadow: 0 0 5px rgb(137, 54, 231), 0 0 5px rgb(137, 54, 231), 0 0 5px rgb(137, 54, 231), 0 0 5px rgb(137, 54, 231);
+    text-align: center;
+}
+
+.carrusel {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.carrusel-items {
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 30px 0px;
+}
+
+.carrusel-item {
+    min-width: 300px;
+    max-width: 300px;
+    height: 200px;    
+    cursor: pointer;
+}
+
+.carrusel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: solid pink;
+}
+
+.carrusel-item:hover {
+    transform: scale(1.2);
+}
+
+
+/*FOOTER*/
+footer {
+    width: 100%;
+    padding: 50px 0px;
+    background-image: url(./img/background-footer.svg);
+    background-size: cover;
+}
+
+.container__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;    
+}
+
+.container__footer a{
+    text-decoration: none;
+}
+
+.box__footer {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.box__footer .logo img {
+    width: 150px;
+    height: 120px;
+}
+
+.box__footer .terms {
+    max-width: 350px;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #7a7a7a;
+    font-size: 18px;
+}
+
+.box__footer h2 {
+    margin-bottom: 30px;
+    color: #a94fcc;
+    font-weight: 700;
+}
+
+.box__footer a {
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+
+.box__footer a:hover {
+    color: #995696;
+    opacity: 0.8;
+}
+
+.box__footer a .fab {
+    font-size: 20px;
+}
+
+.box__copyright {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.box__copyright p {
+    margin-top: 20px;
+    color: #9052c4;
+}
+
+.box__copyright hr {
+    border: none;
+    height: 1px;
+    background-color: #7a7a7a;
+}
+
+

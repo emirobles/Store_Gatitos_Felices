@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATITOS FELICES</title>
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:ital@1&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>    
+    <script src="dist/simplyCountdown.min.js"></script>
+</head>
+
+<body class="darkmode">
+    <!--Header- Brand y botón de carrito-->
+    <header>
+        <img src="./img/cat_box-.png">
+        <h1 id="titulo" class="titulo">RASCADORES GATITOS FELICES</h1>
+        <button id="boton-carrito" class="animate__animated animate__headShake animate__repeat-2"><i
+                class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>                
+    </header>
+
+    <!--Primeras opciones-->
+    <div id="top-options">
+
+        <!--Selector de disponibles-->
+        <select id="filtroBusqueda">
+            <option value="Disponibles">Disponibles</option>
+        </select>
+
+        <!--Selector para dark mode-->
+        <button id="bdark" class="active"><img src="./img/cat-icon.png" id="dark-mode"></button>
+        
+
+    </div>    
+
+    <!--Sección de cards con los rascadores disponibles-->
+    <main id="contenedor-productos">
+
+    </main>
+
+    <!--Resumen de items del carrito-->
+    <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3>Su selección</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito-contenedor">
+
+            </div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+            <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
+            <button id="comprar" class="boton-comprar"><a href="https://www.mercadopago.com.ar/home">COMPRAR</a></button>
+        </div>
+    </div>
+    
+    <!--Producto Nuevo puesto como novedad-->
+    <div id="anuncioNovedad"> 
+
+    </div>
+    
+    <!--Reloj con cuenta regresasiva para el ingreso de nuevo producto-->
+    <div id="reloj">
+
+    </div>
+
+    <!--Sección de Clientes gatunos y display de sus fotos-->
+    <div class="clientes"> 
+        <h2>NUESTROS CLIENTES DEL MES</h2>
+    </div>
+    <div class="carrusel">
+        <div class="carrusel-items">
+            <div class="carrusel-item">
+                <img src="./img/gato1.jpg" alt="Ragna" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato2.JPG" alt="Ciri" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato3.jpg" alt="Faustino" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato4.JPG" alt="Adolf" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato5.jpg" alt="Caliope" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato6.jpg" alt="Saku" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato7.jpg" alt="Cocó" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato8.jpg" alt="Betún" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato9.jpg" alt="Kitty" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato10.JPG" alt="Tony_y_Chopper" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato11.jpg" alt="Morfeo" />
+            </div>
+            <div class="carrusel-item">
+                <img src="./img/gato12.jpg" alt="Iroh" />
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>
+    
+    <!--Sección del Footer-->
+    <footer>    
+        <div class="container__footer">
+            <div class="box__footer">
+                <div class="logo">
+                    <img src="./img/cat_box-.png" alt="">
+                </div>
+                <div class="terms">
+                    <p>Somos una tienda online que realiza de forma artesanal y con mucho amor distintos modelos de rascadores para gatitos desde hace 5 años. Si bien contamos con stock nuestro trabajo es personalizable a tu gusto. Estamos ubicados en Córdoba Capital y hacemos envíos a todo el país.</p>
+                </div>
+            </div>
+            <div class="box__footer">
+                <h2>Métodos de pago</h2>
+                <a href="#">Efectivo</a>
+                <a href="http://www.bcra.gov.ar/Saber_es_central/transferencias-bancarias-inmediatas-y-gratuitas.html">Transferencia</a>
+                <a href="https://www.mercadopago.com.ar/home">Mercado Pago</a>
+                <a href="https://www.naranjax.com/">Naranja X</a>
+            </div>    
+            <div class="box__footer">
+                <h2>Envíos a domicilio</h2>
+                <a href="https://www.paginasamarillas.com.ar/b/fletes-economicos/cordoba">Flete</a>
+                <a href="https://terminaldecordoba.com/sector-de-encomiendas-en-terminal-de-cordoba/">Encomienda</a>
+                <a href="https://envios.mercadolibre.com.ar/">Mercado Envíos</a>
+                <a href="https://www.correoargentino.com.ar/MiCorreo/public/inicio/index.html">Paq.ar</a>
+            </div>    
+            <div class="box__footer">
+                <h2>Síguenos en</h2>                
+                <a href="https://www.instagram.com/gatitosfelices_cba/?igshid=YmMyMTA2M2Y%3D"><i class="fab fa-instagram-square"></i> Instagram</a>
+            </div>    
+        </div>    
+        <div class="box__copyright">
+            <hr>
+            <p>2022 © Developed by <b>Emilce Robles</b></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
