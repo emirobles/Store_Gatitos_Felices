@@ -18,7 +18,7 @@ let torreNueva = {
     material: "Peluche, polar piel, alfombra, yute",
     cantidad: 1,
     precio: 19500,
-    img: "./img/palacio.jpg",
+    img: "./img/palacio.JPG",
 
 }
 //Spread ocupado para armar segmento de novedades
@@ -110,7 +110,7 @@ let stockProductos = [
         material: "Peluche, polar piel, alfombra, yute",
         cantidad: 1,
         precio: 3000,
-        img: "./img/torre1p.jpg",
+        img: "./img/torre1p.JPG",
 
     },
     {
@@ -120,7 +120,7 @@ let stockProductos = [
         material: "Peluche, polar piel, alfombra, yute",
         cantidad: 1,
         precio: 5000,
-        img: "./img/torre-2p.jpg",
+        img: "./img/torre-2p.JPG",
 
     },
     {
@@ -130,7 +130,7 @@ let stockProductos = [
         material: "Alfombra, puede agregarse yute",
         cantidad: 1,
         precio: 2000,
-        img: "./img/gatos-sillon.jpg",
+        img: "./img/gatos-sillon.JPG",
 
     },
     {
@@ -140,7 +140,7 @@ let stockProductos = [
         material: "Peluche, polar piel, alfombra",
         cantidad: 1,
         precio: 6500,
-        img: "./img/cubo-estante.jpg",
+        img: "./img/cubo-estante.JPG",
 
     },
     {
@@ -150,7 +150,7 @@ let stockProductos = [
         material: "Peluche, polar piel, alfombra, yute",
         cantidad: 1,
         precio: 15000,
-        img: "./img/torre-casa.jpg",
+        img: "./img/torre-casa.JPG",
 
     },
     
@@ -413,23 +413,47 @@ function store(value) {
     localStorage.setItem(`darkmode`, value);
 }
 
-//-----------Sounds
+//-----------Sounds--------
+//Sonido de ronroneo al presionar el boton el mouse sobre cualquier parte de la pantalla
 const mewSound = new AudioContext();
 let audio;
 
-fetch("./sounds/mew1.wav")
+fetch("./sounds/prr.wav")
     .then(data => data.arrayBuffer())
     .then(arrayBuffer => mewSound.decodeAudioData(arrayBuffer))
     .then(decodeAudio => {
         audio = decodeAudio;
     })
 
+//funcion para ejecutar los sonidos del ronroneo
 function playMew() {
     const playSound = mewSound.createBufferSource();
     playSound.buffer = audio;
     playSound.connect(mewSound.destination);
     playSound.start(mewSound.currentTime);
+}
+//ejecución llamando a la función del ronroneo
+window.addEventListener("mousedown", playMew)
 
+//Sonido de maullido al hacer click en el botón de gatito
+
+async function busquedaSonido() {
+    const sonidos = await fetch('./json/sounds.json')
+    const sonidosParseados = await sounds.json()
+    return sonidosParseados
 }
 
-window.addEventListener("mousedown", playMew)
+const btnCat = document.querySelector('.btn-cat')
+
+//función de sonido de maullido
+function mew() {
+    const sonidoMew = busquedaSonido().then(sonidos => {
+        sonidos.forEach((sonido) => {
+            let mewAudio = new Audio(sonido.mew1)
+            mewAudio.play()
+        })
+    })
+}
+
+//ejecución llamando a la función del maullido
+btnCat.addEventListener('click', mew)
