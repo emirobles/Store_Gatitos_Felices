@@ -341,7 +341,7 @@ const countdown = (deadline, elem, finalMessage) => {
 
     const timerUpdate = setInterval(() => {
         let t = getRemainingTime(deadline);
-        el.innerHTML = `Faltan: ${t.remainDays}Días : ${t.remainHours}Hs : ${t.remainMinutes}Min : ${t.remainSeconds}Seg`;
+        el.innerHTML = `Faltan: ${t.remainDays}Días : ${t.remainHours}Hs : ${t.remainMinutes}Min : ${t.remainSeconds}Seg para el ingreso de Nuevos Modelos`;
 
         if (t.remainTime <= 1) {
             clearInterval(timerUpdate);
